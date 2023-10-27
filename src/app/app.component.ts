@@ -6,6 +6,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AnalyticsService } from './@core/utils/analytics.service';
 import { SeoService } from './@core/utils/seo.service';
+import { environment } from '../environments/environment';
 
 @Component({
   selector: 'ngx-app',
@@ -14,8 +15,9 @@ import { SeoService } from './@core/utils/seo.service';
 export class AppComponent implements OnInit {
 
   constructor(private analytics: AnalyticsService, private seoService: SeoService) {
+    console.log(`execute::eviroments::production::${environment.production}`);
   }
-
+  
   ngOnInit(): void {
     this.analytics.trackPageViews();
     this.seoService.trackCanonicalChanges();

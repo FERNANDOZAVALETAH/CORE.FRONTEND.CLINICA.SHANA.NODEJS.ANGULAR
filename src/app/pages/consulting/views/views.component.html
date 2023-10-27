@@ -1,0 +1,129 @@
+<nb-card>
+  <nb-tabset>
+    <nb-tab tabTitle="N° {{consulting.data.consultingNumber}}">
+          <nb-card-body>
+            <div class="row">
+              <div class="col-xxxl-3 col-xxl-4 col-lg-4">
+                <div class="form-group">
+                  <label for="inputDni" class="label">Nro Identidad</label>
+                  <input type="text" nbInput fullWidth id="inputDni" placeholder="xxxxxxxx" readonly [value]="consulting.data.dni">
+                </div>
+              </div>
+              <div class="col-xxxl-3 col-xxl-4 col-lg-4">
+                  <div class="form-group">
+                    <label for="inputEmail" class="label">Email</label>
+                    <input type="email" nbInput fullWidth id="inputEmail" placeholder="demo@demo.com" readonly [value]="consulting.data.email">
+                  </div>
+              </div>
+              <div class="col-xxxl-3 col-xxl-4 col-lg-4">
+                <div class="form-group">
+                  <label for="inputFirstName" class="label">Nombre y Apellido</label>
+                  <input type="text" nbInput fullWidth id="inputFirstName" placeholder="Nombres completos" readonly [value]="consulting.data.client">
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-xxxl-3 col-xxl-4 col-lg-4">
+                  <div class="form-group">
+                    <label for="inputPhone" class="label">Telefono</label>
+                    <input type="text" nbInput fullWidth id="inputPhone" placeholder="912086409" readonly>
+                  </div>
+              </div>
+              <div class="col-xxxl-3 col-xxl-4 col-lg-4">
+                <div class="form-group">
+                    <label for="inputScheduleDate" class="label">Fecha programada</label>
+                    <input type="date" nbInput fullWidth id="inputScheduleDate" placeholder="dd/mm/yyyy">
+                </div>
+            </div>
+            <div class="col-xxxl-3 col-xxl-4 col-lg-4">
+                <div class="form-group">
+                    <label for="inputTimeDate" class="label">Hora programada</label>
+                    <input type="time" nbInput fullWidth id="inputTimeDate" placeholder="hh:mm">
+                </div>
+            </div>
+            </div>
+            <div class="row">
+              <div class="col-xxxl-9 col-xxl-12">
+                <div class="form-group">
+                  <label for="inputReason" class="label">Motivo</label>
+                  <input type="text" nbInput fullWidth id="inputReason" placeholder="xxxxxxxx">
+                </div>
+              </div>
+            </div>
+          </nb-card-body>
+    </nb-tab>
+    <nb-tab tabTitle="SESIONES">
+      <nb-card-body>
+        <div class="row">
+          <div class="col-xxxl-4 col-xxl-4 col-lg-4">
+            <div class="form-group">
+              <label for="inputNumberSession" class="label">Nro Sesiones</label>
+              <input type="number" [min]="minValue" [max]="maxValue" (input)="onInputChange($event)" nbInput fullWidth id="inputNumberSession" placeholder="1">
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xxxl-12 col-xxl-12 col-lg-12">
+            <label for="inputNumberSession" class="label">Progreso de programación</label>
+            <nb-progress-bar [value]="value" [status]="status" [displayValue]="true"></nb-progress-bar>
+          </div>
+        </div>
+        <br>
+        <div class="row">
+          <div class="col-xxxl-3 col-xxl-3 col-lg-3">
+            <div class="form-group">
+              <label for="inputScheduleDate" class="label">Fecha programada</label>
+            </div>
+          </div>
+          <div class="col-xxxl-3 col-xxl-3 col-lg-3">
+            <div class="form-group">
+              <label for="inputScheduleDate" class="label">Hora programada</label>
+            </div>
+          </div>
+          <div class="col-xxxl-4 col-xxl-4 col-lg-4">
+            <div class="form-group">
+              <label for="inputObservation" class="label">Observacion</label>
+            </div>
+          </div>
+          <div class="col-xxxl-2 col-xxl-2 col-lg-2">
+            <div class="form-group">
+              <label for="inputStatus" class="label">Estado</label>
+            </div>
+          </div>
+        </div>
+        <div class="row" *ngFor="let item of rowSessions">
+          <div class="col-xxxl-3 col-xxl-3 col-lg-3">
+            <div class="form-group">
+              <input type="date" nbInput fullWidth id="inputScheduleDate" placeholder="dd/mm/yyyy">
+            </div>
+          </div>
+          <div class="col-xxxl-3 col-xxl-3 col-lg-3">
+            <div class="form-group">
+              <input type="time" nbInput fullWidth id="inputTimeDate" placeholder="hh:mm">
+            </div>
+          </div>
+          <div class="col-xxxl-4 col-xxl-4 col-lg-4">
+            <div class="form-group">
+              <input type="text" nbInput fullWidth id="inputObservation" placeholder="xxxxxxxx">
+            </div>
+          </div>
+          <div class="col-xxxl-2 col-xxl-2 col-lg-2">
+            <div class="form-group">
+              <nb-select selected="1">
+                <nb-option value="1">Pendiente</nb-option>
+                <nb-option value="2">Ejecutado</nb-option>
+                <nb-option value="3">Cancelado</nb-option>
+              </nb-select>
+            </div>
+          </div>
+        </div>
+      </nb-card-body>
+    </nb-tab>
+  </nb-tabset>
+  <nb-card-footer>
+    <div class="buttons-row">
+      <button nbButton status="success" outline>CANCELAR</button>
+      <button nbButton status="success">ACTUALIZAR</button>
+    </div>
+  </nb-card-footer>
+</nb-card>

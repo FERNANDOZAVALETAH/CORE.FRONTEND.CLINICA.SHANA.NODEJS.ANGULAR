@@ -6,7 +6,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { CoreModule } from './@core/core.module';
 import { ThemeModule } from './@theme/theme.module';
 import { AppComponent } from './app.component';
@@ -17,9 +17,13 @@ import {
   NbDialogModule,
   NbMenuModule,
   NbSidebarModule,
+  NbSpinnerModule,
+  NbTimepickerModule,
   NbToastrModule,
   NbWindowModule,
 } from '@nebular/theme';
+import { AuthGuard } from './guards';
+import { TokenInterceptor } from './interceptor';
 
 @NgModule({
   declarations: [AppComponent],
@@ -37,10 +41,18 @@ import {
     NbChatModule.forRoot({
       messageGoogleMapKey: 'AIzaSyA_wNuCzia92MAmdLRzmqitRGvCF7wCZPY',
     }),
+    NbTimepickerModule.forRoot(),
     CoreModule.forRoot(),
     ThemeModule.forRoot(),
+    NbSpinnerModule,
   ],
   bootstrap: [AppComponent],
+  providers: [{
+    provide: HTTP_INTERCEPTORS,
+    useClass: TokenInterceptor,
+    multi: true,
+  },
+  AuthGuard]
 })
 export class AppModule {
 }

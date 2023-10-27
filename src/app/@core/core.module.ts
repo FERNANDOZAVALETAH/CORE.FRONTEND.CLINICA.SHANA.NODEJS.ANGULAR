@@ -1,6 +1,6 @@
 import { ModuleWithProviders, NgModule, Optional, SkipSelf } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { NbAuthModule, NbDummyAuthStrategy } from '@nebular/auth';
+import { NbAuthModule, NbPasswordAuthStrategy } from '@nebular/auth';
 import { NbSecurityModule, NbRoleProvider } from '@nebular/security';
 import { of as observableOf } from 'rxjs';
 
@@ -52,6 +52,9 @@ import { StatsProgressBarService } from './mock/stats-progress-bar.service';
 import { VisitorsAnalyticsService } from './mock/visitors-analytics.service';
 import { SecurityCamerasService } from './mock/security-cameras.service';
 import { MockDataModule } from './mock/mock-data.module';
+import { FormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
+import { environment } from '../../environments/environment';
 
 const socialLinks = [
   {
@@ -106,14 +109,19 @@ export const NB_CORE_PROVIDERS = [
   ...NbAuthModule.forRoot({
 
     strategies: [
-      NbDummyAuthStrategy.setup({
-        name: 'email',
-        delay: 3000,
-      }),
+      NbPasswordAuthStrategy.setup({
+        name: 'auth',
+        baseEndpoint: environment.endpoint.access.auth,
+        login: {
+          endpoint: 'v1.0/login',
+          method: 'post'
+        }
+      })
     ],
     forms: {
       login: {
         socialLinks: socialLinks,
+        strategy: 'auth'
       },
       register: {
         socialLinks: socialLinks,
@@ -148,6 +156,8 @@ export const NB_CORE_PROVIDERS = [
 @NgModule({
   imports: [
     CommonModule,
+    FormsModule,
+    RouterModule,
   ],
   exports: [
     NbAuthModule,

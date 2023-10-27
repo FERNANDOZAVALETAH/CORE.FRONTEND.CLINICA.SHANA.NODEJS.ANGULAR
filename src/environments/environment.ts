@@ -10,4 +10,13 @@
 
 export const environment = {
   production: false,
+  endpoint: {
+    access: {
+      auth: 'http://localhost:3000/api/auth/',
+      home: 'http://localhost:3000/api/home',
+    },
+    scheduling: {
+      consulting: 'http://localhost:4000'
+    }
+  }
 };

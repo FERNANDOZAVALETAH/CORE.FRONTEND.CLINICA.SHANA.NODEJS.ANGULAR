@@ -1,0 +1,72 @@
+<nb-card>
+    <nb-card-header>REGISTRO DE CONSULTAS</nb-card-header>
+    <nb-card-body>
+      <div class="row">
+        <div class="col-xxxl-3 col-xxl-4 col-lg-4">
+          <div class="form-group">
+            <label for="inputDni" class="label">Nro Identidad</label>
+            <input type="text" nbInput fullWidth id="inputDni" placeholder="xxxxxxxx" [(ngModel)]="iregister.dni">
+          </div>
+        </div>
+        <div class="col-xxxl-3 col-xxl-4 col-lg-4">
+            <div class="form-group">
+              <label for="inputEmail" class="label">Email</label>
+              <input type="email" nbInput fullWidth id="inputEmail" placeholder="demo@demo.com" [(ngModel)]="iregister.email">
+            </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xxxl-3 col-xxl-4 col-lg-4">
+          <div class="form-group">
+            <label for="inputFirstName" class="label">Nombres</label>
+            <input type="text" nbInput fullWidth id="inputFirstName" placeholder="Nombres completos" [(ngModel)]="iregister.firstName">
+          </div>
+        </div>
+        <div class="col-xxxl-3 col-xxl-4 col-lg-4">
+          <div class="form-group">
+            <label for="inputLastName" class="label">Apellidos</label>
+            <input type="text" nbInput fullWidth id="inputLastName" placeholder="Apellidos completos" [(ngModel)]="iregister.lastName">
+          </div>
+        </div>
+        <div class="col-xxxl-3 col-xxl-4 col-lg-4">
+            <div class="form-group">
+              <label for="inputPhone" class="label">Telefono</label>
+              <input type="text" nbInput fullWidth id="inputPhone" placeholder="912086409" [(ngModel)]="iregister.phone">
+            </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xxxl-3 col-xxl-4 col-lg-4">
+            <div class="form-group">
+                <label for="inputScheduleDate" class="label">Fecha programada</label>
+                <input type="date" nbInput fullWidth id="inputScheduleDate" placeholder="dd/mm/yyyy" [(ngModel)]="iregister.consultingDate">
+            </div>
+        </div>
+        <div class="col-xxxl-3 col-xxl-4 col-lg-4">
+            <div class="form-group">
+                <label for="inputTimeDate" class="label">Hora programada</label>
+                <input type="time" nbInput fullWidth id="inputTimeDate" placeholder="hh:mm" [(ngModel)]="iregister.consultingHour">
+            </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xxxl-9 col-xxl-12">
+          <div class="form-group">
+            <label for="inputReason" class="label">Motivo</label>
+            <input type="text" nbInput fullWidth id="inputReason" placeholder="xxxxxxxx" [(ngModel)]="iregister.reason">
+          </div>
+        </div>
+      </div>
+    </nb-card-body>
+    <nb-card-footer>
+        <div class="buttons-row">
+            <button nbButton status="success" outline>
+                CANCELAR
+            </button>
+            <button (click)="register()" nbButton status="success">
+                REGISTRAR
+            </button>
+          </div>
+      </nb-card-footer>
+</nb-card>
+<nb-spinner *ngIf="showSpinner" status="info"></nb-spinner>

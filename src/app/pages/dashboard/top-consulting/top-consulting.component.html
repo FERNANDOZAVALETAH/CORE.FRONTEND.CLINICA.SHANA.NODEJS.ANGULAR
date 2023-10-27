@@ -1,0 +1,14 @@
+<nb-card class="cards-container">
+    <nb-card size="large" class="table-card">
+        <nb-card-header>
+            Consultas semanales
+        </nb-card-header>
+        <nb-card-body>
+            <ng2-smart-table 
+                [settings]="settings" 
+                [source]="source"
+                (userRowSelect)="onRowSelect($event)">
+            </ng2-smart-table>
+          </nb-card-body>
+    </nb-card>
+</nb-card>

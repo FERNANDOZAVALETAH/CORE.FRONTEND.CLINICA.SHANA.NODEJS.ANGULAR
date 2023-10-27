@@ -5,4 +5,13 @@
  */
 export const environment = {
   production: true,
+  endpoint: {
+    access: {
+      auth: 'http://internal-microservices-auth/api/auth/',
+      home: 'http://internal-microservices-home/api/home/',
+    },
+    scheduling: {
+      consulting: 'http://internal-microservices-consulting/api/consulting/'
+    }
+  }
 };

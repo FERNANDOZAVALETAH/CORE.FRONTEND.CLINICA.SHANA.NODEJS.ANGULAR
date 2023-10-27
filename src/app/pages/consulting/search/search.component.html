@@ -1,0 +1,50 @@
+<nb-card>
+    <nb-card-header>BUSQUEDA DE CONSULTAS</nb-card-header>
+    <nb-card-body>
+        <div class="row">
+            <div class="col-xxxl-3 col-xxl-4 col-lg-4">
+              <div class="form-group">
+                <label for="inputDniOrConsulting" class="label">Nro Identidad / Nro Consulta</label>
+                <input type="text" nbInput fullWidth id="inputDniOrConsulting" placeholder="xxxxxxxx">
+              </div>
+            </div>
+            <div class="col-xxxl-3 col-xxl-4 col-lg-4">
+                <div class="form-group">
+                  <label for="inputEmail" class="label">Email</label>
+                  <input type="email" nbInput fullWidth id="inputEmail" placeholder="demo@demo.com">
+                </div>
+            </div>
+            <div class="col-xxxl-3 col-xxl-4 col-lg-4">
+                <div class="form-group">
+                  <label for="inputScheduleDate" class="label">Fecha consulta</label>
+                  <input type="text" nbInput fullWidth id="inputScheduleDate" placeholder="dd/mm/yyyy">
+                </div>
+              </div>
+          </div>
+    </nb-card-body>
+    <nb-card-footer>
+        <div class="buttons-row">
+            <button nbButton status="success" outline>
+                CANCELAR
+            </button>
+            <button nbButton status="success">
+                BUSCAR
+            </button>
+          </div>
+      </nb-card-footer>
+</nb-card>
+
+<nb-card class="cards-container">
+    <nb-card size="large" class="table-card">
+        <nb-card-header>
+            RESULTADO
+        </nb-card-header>
+        <nb-card-body>
+            <ng2-smart-table 
+              [settings]="settings" 
+              [source]="source" 
+              (userRowSelect)="onRowSelect($event)">
+            </ng2-smart-table>
+          </nb-card-body>
+    </nb-card>
+</nb-card>

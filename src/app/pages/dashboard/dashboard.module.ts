@@ -9,6 +9,7 @@ import {
   NbSelectModule,
   NbListModule,
   NbIconModule,
+  NbTimepickerModule,
 } from '@nebular/theme';
 import { NgxEchartsModule } from 'ngx-echarts';
 
@@ -30,6 +31,11 @@ import { PlayerComponent } from './rooms/player/player.component';
 import { TrafficComponent } from './traffic/traffic.component';
 import { TrafficChartComponent } from './traffic/traffic-chart.component';
 import { FormsModule } from '@angular/forms';
+import { CountConsultingComponent } from './count-consulting/count-consulting.component';
+import { TopConsultingComponent } from './top-consulting/top-consulting.component';
+import { Ng2SmartTableModule } from 'ng2-smart-table';
+import { TablesRoutingModule } from '../tables/tables-routing.module';
+import { TopSessionComponent } from './top-session/top-session.component';
 
 @NgModule({
   imports: [
@@ -46,6 +52,9 @@ import { FormsModule } from '@angular/forms';
     NbIconModule,
     NbButtonModule,
     NgxEchartsModule,
+    TablesRoutingModule,
+    Ng2SmartTableModule,
+    NbTimepickerModule
   ],
   declarations: [
     DashboardComponent,
@@ -64,6 +73,9 @@ import { FormsModule } from '@angular/forms';
     SolarComponent,
     TrafficComponent,
     TrafficChartComponent,
+    CountConsultingComponent,
+    TopConsultingComponent,
+    TopSessionComponent,
   ],
 })
 export class DashboardModule { }

@@ -5,6 +5,7 @@ import { PagesComponent } from './pages.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { ECommerceComponent } from './e-commerce/e-commerce.component';
 import { NotFoundComponent } from './miscellaneous/not-found/not-found.component';
+import { AuthGuard } from '../guards';
 
 const routes: Routes = [{
   path: '',
@@ -12,11 +13,18 @@ const routes: Routes = [{
   children: [
     {
       path: 'dashboard',
-      component: ECommerceComponent,
+      component: DashboardComponent,
+      canActivate: [AuthGuard]
     },
     {
-      path: 'iot-dashboard',
-      component: DashboardComponent,
+      path: 'consulting',
+      loadChildren: () => import('./consulting/consulting.module')
+        .then(m => m.ConsultingModule)
+    },
+    {
+      path: 'session',
+      loadChildren: () => import('./session/session.module')
+        .then(m => m.SessionModule)
     },
     {
       path: 'layout',
