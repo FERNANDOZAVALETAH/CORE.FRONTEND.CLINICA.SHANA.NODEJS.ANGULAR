@@ -15,6 +15,9 @@ export const environment = {
       auth: 'http://localhost:3000/api/auth/',
       home: 'http://localhost:3000/api/home',
     },
+    user: {
+      profile: 'http://localhost:5001/api/profile'
+    },
     scheduling: {
       consulting: 'http://localhost:4000'
     }

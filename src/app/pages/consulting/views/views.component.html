@@ -1,24 +1,24 @@
 <nb-card>
   <nb-tabset>
-    <nb-tab tabTitle="N° {{consulting.data.consultingNumber}}">
+    <nb-tab tabTitle="N° {{consulting.consultingNumber}}">
           <nb-card-body>
             <div class="row">
               <div class="col-xxxl-3 col-xxl-4 col-lg-4">
                 <div class="form-group">
                   <label for="inputDni" class="label">Nro Identidad</label>
-                  <input type="text" nbInput fullWidth id="inputDni" placeholder="xxxxxxxx" readonly [value]="consulting.data.dni">
+                  <input type="text" nbInput fullWidth id="inputDni" placeholder="xxxxxxxx" readonly [(ngModel)]="consulting.dni">
                 </div>
               </div>
               <div class="col-xxxl-3 col-xxl-4 col-lg-4">
                   <div class="form-group">
                     <label for="inputEmail" class="label">Email</label>
-                    <input type="email" nbInput fullWidth id="inputEmail" placeholder="demo@demo.com" readonly [value]="consulting.data.email">
+                    <input type="email" nbInput fullWidth id="inputEmail" placeholder="demo@demo.com" readonly [(ngModel)]="consulting.email">
                   </div>
               </div>
               <div class="col-xxxl-3 col-xxl-4 col-lg-4">
                 <div class="form-group">
                   <label for="inputFirstName" class="label">Nombre y Apellido</label>
-                  <input type="text" nbInput fullWidth id="inputFirstName" placeholder="Nombres completos" readonly [value]="consulting.data.client">
+                  <input type="text" nbInput fullWidth id="inputFirstName" placeholder="Nombres completos" readonly [(ngModel)]="consulting.client">
                 </div>
               </div>
             </div>
@@ -26,19 +26,19 @@
               <div class="col-xxxl-3 col-xxl-4 col-lg-4">
                   <div class="form-group">
                     <label for="inputPhone" class="label">Telefono</label>
-                    <input type="text" nbInput fullWidth id="inputPhone" placeholder="912086409" readonly>
+                    <input type="text" nbInput fullWidth id="inputPhone" placeholder="912086409" readonly >
                   </div>
               </div>
               <div class="col-xxxl-3 col-xxl-4 col-lg-4">
                 <div class="form-group">
                     <label for="inputScheduleDate" class="label">Fecha programada</label>
-                    <input type="date" nbInput fullWidth id="inputScheduleDate" placeholder="dd/mm/yyyy">
+                    <input type="date" nbInput fullWidth id="inputScheduleDate" placeholder="dd/mm/yyyy" [(ngModel)]="formatDate">
                 </div>
             </div>
             <div class="col-xxxl-3 col-xxl-4 col-lg-4">
                 <div class="form-group">
                     <label for="inputTimeDate" class="label">Hora programada</label>
-                    <input type="time" nbInput fullWidth id="inputTimeDate" placeholder="hh:mm">
+                    <input type="time" nbInput fullWidth id="inputTimeDate" placeholder="hh:mm" [(ngModel)]="consulting.formatHour">
                 </div>
             </div>
             </div>
@@ -46,7 +46,7 @@
               <div class="col-xxxl-9 col-xxl-12">
                 <div class="form-group">
                   <label for="inputReason" class="label">Motivo</label>
-                  <input type="text" nbInput fullWidth id="inputReason" placeholder="xxxxxxxx">
+                  <input type="text" nbInput fullWidth id="inputReason" placeholder="xxxxxxxx" [(ngModel)]="consulting.reason">
                 </div>
               </div>
             </div>
@@ -65,7 +65,7 @@
         <div class="row">
           <div class="col-xxxl-12 col-xxl-12 col-lg-12">
             <label for="inputNumberSession" class="label">Progreso de programación</label>
-            <nb-progress-bar [value]="value" [status]="status" [displayValue]="true"></nb-progress-bar>
+            <nb-progress-bar [(ngModel)]="value" [status]="status" [displayValue]="true"></nb-progress-bar>
           </div>
         </div>
         <br>

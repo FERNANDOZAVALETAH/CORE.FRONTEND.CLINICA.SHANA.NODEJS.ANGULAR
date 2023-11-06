@@ -11,7 +11,7 @@ export class UserService {
   constructor(private http: HttpClient) {}
 
   findById(idUser): Observable<IUserResponse> {
-    return this.http.get<IUserResponse>(`${environment.endpoint.access.home}/v1.0/${idUser}`);
+    return this.http.get<IUserResponse>(`${environment.endpoint.user.profile}/v1.0/${idUser}`);
   }
 
   findByType(): Observable<IUserResponse> {

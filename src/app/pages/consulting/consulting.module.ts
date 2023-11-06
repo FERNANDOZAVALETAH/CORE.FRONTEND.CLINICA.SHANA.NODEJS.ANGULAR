@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { NbActionsModule, NbButtonModule, NbCardModule, NbCheckboxModule, NbDatepickerModule, NbIconModule, NbInputModule, NbProgressBarModule, NbRadioModule, NbSelectModule, NbTabsetModule } from '@nebular/theme';
+import { NbActionsModule, NbButtonModule, NbCardModule, NbCheckboxModule, NbDatepickerModule, NbIconModule, NbInputModule, NbProgressBarModule, NbRadioModule, NbSelectModule, NbSpinnerModule, NbTabsetModule } from '@nebular/theme';
 
 import { ThemeModule } from '../../@theme/theme.module';
 import { ConsultingComponent } from './consulting.component';
@@ -10,6 +10,7 @@ import { FormsModule as ngFormsModule } from '@angular/forms';
 import { SearchComponent } from './search/search.component';
 import { Ng2SmartTableModule } from 'ng2-smart-table';
 import { ViewsComponent } from './views/views.component';
+import { ShowcaseDialogComponent } from '../../shared/showcase-dialog/showcase-dialog.component';
 
 @NgModule({
     imports: [
@@ -27,6 +28,7 @@ import { ViewsComponent } from './views/views.component';
         NbSelectModule,
         NbIconModule,
         ngFormsModule,
+        NbSpinnerModule,
         Ng2SmartTableModule,
         ConsultingRoutingModule,
       ],
@@ -35,6 +37,7 @@ import { ViewsComponent } from './views/views.component';
         RegisterComponent,
         SearchComponent,
         ViewsComponent,
+        ShowcaseDialogComponent
       ],
 })
 export class ConsultingModule { }

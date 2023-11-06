@@ -1,4 +1,4 @@
-<nb-card>
+<nb-card [nbSpinner]="showSpinner">
     <nb-card-header>REGISTRO DE CONSULTAS</nb-card-header>
     <nb-card-body>
       <div class="row">
@@ -69,4 +69,3 @@
           </div>
       </nb-card-footer>
 </nb-card>
-<nb-spinner *ngIf="showSpinner" status="info"></nb-spinner>

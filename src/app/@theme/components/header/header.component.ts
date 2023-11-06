@@ -1,9 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { NbMenuService, NbSidebarService } from '@nebular/theme';
 
-import { UserData } from '../../../@core/data/users';
 import { LayoutService } from '../../../@core/utils';
-import { map, takeUntil } from 'rxjs/operators';
 import { Subject } from 'rxjs';
 import { UserService } from '../../../services/user.service';
 
@@ -15,7 +13,7 @@ import { UserService } from '../../../services/user.service';
 export class HeaderComponent implements OnInit, OnDestroy {
 
   private destroy$: Subject<void> = new Subject<void>();
-  userPictureOnly: boolean = false;
+  userPictureOnly: boolean = true;
   user: any;
 
 
@@ -28,8 +26,16 @@ export class HeaderComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
-    this.userService.findById('')
-      .subscribe((users: any) => this.user = users);
+    this.userService.findById("652b4fcbb8385377ea1a9cc9").subscribe({
+      next: (response) => {
+        this.user = response.data;
+        console.log("SERVICE SUCCESS:", response.message);
+      },
+      error: (e) => {
+        //const error = this.errorHandler(e);
+      },
+      complete: () => console.log("PROCESS COMPLETE"),
+    })
   }
 
   ngOnDestroy() {
@@ -48,4 +54,5 @@ export class HeaderComponent implements OnInit, OnDestroy {
     this.menuService.navigateHome();
     return false;
   }
+  
 }

@@ -48,14 +48,8 @@ export class TopConsultingComponent implements OnInit {
         valuePrepareFunction: (cell, row) => {
           if (row.status === 1) {
             return '<span class="badge badge-success">PENDIENTE</span>';
-          } else if (row.status === 2) {
-            return '<span class="badge badge-info">ATENDIDO</span>';
-          } else if (row.status === 3) {
-            return '<span class="badge badge-danger">RECHAZADO</span>';
-          } else if (row.status === 4) {
-            return '<span class="badge badge-warning">CANCELADO</span>';
           } else {
-            return '<span class="badge badge-danger">RECHAZADO</span>';
+            return '<span class="badge badge-danger">ESTADO ERRONEO</span>';
           }
         }
       }

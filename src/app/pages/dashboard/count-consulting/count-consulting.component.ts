@@ -10,7 +10,7 @@ export class CountConsultingComponent implements OnInit {
   @Input() quantity: number;
   
   constructor() {
-    console.log("CountConsultingComponent")
+
    }
 
   ngOnInit(): void {

@@ -29,4 +29,7 @@ export interface IFindUser {
     idUser: string
     firstName: string
     lastName: string
+    nickName: string
+    email: string
+    role: string
 }

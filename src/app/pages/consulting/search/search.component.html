@@ -2,24 +2,44 @@
     <nb-card-header>BUSQUEDA DE CONSULTAS</nb-card-header>
     <nb-card-body>
         <div class="row">
-            <div class="col-xxxl-3 col-xxl-4 col-lg-4">
+          <div class="col-xxxl-3 col-xxl-3 col-lg-3">
+            <div class="form-group">
+              <label for="inputScheduleStatus" class="label">Estado</label>
+              <nb-select  fullWidth [(ngModel)]="selectedValue" (change)="onSelect($event)">
+                <nb-option value="ALL">Todos</nb-option>
+                <nb-option value="1">Pendiente</nb-option>
+                <nb-option value="2">Rechazado</nb-option>
+                <nb-option value="3">Atendido</nb-option>
+                <nb-option value="4">Cacelado</nb-option>
+              </nb-select>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+            <div class="col-xxxl-3 col-xxl-3 col-lg-3">
               <div class="form-group">
                 <label for="inputDniOrConsulting" class="label">Nro Identidad / Nro Consulta</label>
-                <input type="text" nbInput fullWidth id="inputDniOrConsulting" placeholder="xxxxxxxx">
+                <input type="text" nbInput fullWidth id="inputDniOrConsulting" placeholder="xxxxxxxx" [(ngModel)]="isearch.docNumber">
               </div>
             </div>
-            <div class="col-xxxl-3 col-xxl-4 col-lg-4">
+            <div class="col-xxxl-3 col-xxl-3 col-lg-3">
                 <div class="form-group">
                   <label for="inputEmail" class="label">Email</label>
-                  <input type="email" nbInput fullWidth id="inputEmail" placeholder="demo@demo.com">
+                  <input type="email" nbInput fullWidth id="inputEmail" placeholder="demo@demo.com" [(ngModel)]="isearch.email">
                 </div>
             </div>
-            <div class="col-xxxl-3 col-xxl-4 col-lg-4">
+            <div class="col-xxxl-3 col-xxl-3 col-lg-3">
                 <div class="form-group">
-                  <label for="inputScheduleDate" class="label">Fecha consulta</label>
-                  <input type="text" nbInput fullWidth id="inputScheduleDate" placeholder="dd/mm/yyyy">
+                  <label for="inputScheduleDateStart" class="label">Fecha inicio</label>
+                  <input type="text" nbInput fullWidth id="inputScheduleDateStart" placeholder="dd/mm/yyyy" [(ngModel)]="isearch.startDate">
                 </div>
+            </div>
+            <div class="col-xxxl-3 col-xxl-3 col-lg-3">
+              <div class="form-group">
+                <label for="inputScheduleDateEnd" class="label">Fecha fin</label>
+                <input type="text" nbInput fullWidth id="inputScheduleDateEnd" placeholder="dd/mm/yyyy" [(ngModel)]="isearch.endDate">
               </div>
+          </div>
           </div>
     </nb-card-body>
     <nb-card-footer>
@@ -27,7 +47,7 @@
             <button nbButton status="success" outline>
                 CANCELAR
             </button>
-            <button nbButton status="success">
+            <button (click)="search()" nbButton status="success">
                 BUSCAR
             </button>
           </div>
